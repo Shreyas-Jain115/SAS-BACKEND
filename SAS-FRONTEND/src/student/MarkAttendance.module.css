@@ -1,0 +1,112 @@
+.container {
+  min-height: 100dvh;
+  background: #17181d;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 6vh;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #d3eafd;
+  text-align: center;
+  margin-bottom: 2rem;
+  letter-spacing: 1px;
+}
+
+.qrWrapper {
+  background: #23242a;
+  border-radius: 9px;
+  border: 1.5px solid #232f40;
+  box-shadow: 0 3px 16px #1119;
+  padding: 1.2em;
+  max-width: 320px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: box-shadow 0.15s, border 0.14s;
+}
+
+.qrWrapper:hover {
+  box-shadow: 0 8px 32px #167aaa22;
+  border: 1.5px solid #3a8fff;
+}
+
+.qrInner {
+  max-width: 310px;
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid #232f40;
+  background: #191a22;
+  margin-bottom: 0.7em;
+  transition: box-shadow 0.13s, border 0.09s;
+}
+
+.qrInstructions {
+  color: #a4bdd5b3;
+  font-size: 0.98rem;
+  margin-top: 0.5em;
+  text-align: center;
+  font-style: italic;
+}
+
+.successBox {
+  background: #222328;
+  border: 1.5px solid #13e17c62;
+  box-shadow: 0 2px 12px #13e17c18;
+  border-radius: 0.75em;
+  margin: 0 auto;
+  margin-top: 2em;
+  padding: 1.3em 1em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 280px;
+  animation: fadeIn 0.6s;
+}
+
+.check {
+  font-size: 2rem;
+  color: #13e17c;
+  margin-bottom: 0.6rem;
+  animation: pop 0.38s;
+}
+
+.success {
+  color: #13e17c;
+  font-size: 1.05rem;
+  font-weight: bold;
+  margin-bottom: 0.4rem;
+}
+
+.details {
+  color: #f1fcff;
+  font-size: 0.97rem;
+  word-break: break-all;
+  text-align: center;
+}
+
+@media (max-width: 520px) {
+  .title { font-size: 1.09rem; }
+  .qrWrapper { padding: 0.6em; }
+  .successBox { padding: 0.8em 0.4em; max-width: 97vw; }
+  .qrInner { max-width: 99vw; }
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(15px);}
+  to { opacity: 1; transform: none;}
+}
+@keyframes pop {
+  0% { transform: scale(0.7);}
+  80% { transform: scale(1.12);}
+  100% { transform: scale(1);}
+}

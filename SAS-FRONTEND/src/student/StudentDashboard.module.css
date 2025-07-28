@@ -1,0 +1,94 @@
+.dashboardContainer {
+  min-height: 100dvh;
+  width: 100%;
+  background: #16171a;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 5vh;
+  overflow-x: hidden;
+}
+
+.dashboardTitle {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #f3f4fb;
+  margin-bottom: 1.2rem;
+}
+
+.sectionTitle {
+  color: #b2bacb;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.subjectList {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 2rem 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.1rem;
+  max-width: 750px;
+  width: 100%;
+}
+
+.subjectItem {
+  background: #23242a;
+  color: #ededfe;
+  padding: 1rem 2rem;
+  border-radius: 0.9em;
+  cursor: pointer;
+  box-shadow: 0 2px 10px #2222;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: transform 0.13s, box-shadow 0.15s, color 0.18s, background 0.17s;
+  border: 1px solid #27283c;
+  outline: none;
+  width: fit-content;
+}
+
+.subjectItem:hover,
+.subjectItem:focus {
+  background: #30313b;
+  color: #a5dcff;
+  transform: scale(1.045);
+  box-shadow: 0 6px 24px #44aaff22;
+  border-color: #3a8fff;
+}
+
+.linkStyled {
+  text-decoration: none;
+}
+
+.attendanceButton {
+  background: #30313b;
+  color: #eef6fd;
+  padding: 0.8rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 1em;
+  cursor: pointer;
+  margin-top: 1.7rem;
+  box-shadow: 0 1px 8px #181e2499;
+  letter-spacing: 1px;
+  transition: background 0.2s, transform 0.13s;
+}
+
+.attendanceButton:hover {
+  background: #3a3e56;
+  transform: translateY(-2px) scale(1.03);
+}
+
+@media (max-width: 600px) {
+  .dashboardTitle { font-size: 1.15rem; }
+  .subjectList {
+    gap: 0.6rem;
+    max-width: 97vw;
+  }
+  .subjectItem { font-size: 0.97rem; padding: 0.7rem 1.1rem; }
+  .attendanceButton { padding: 0.6rem 1.1rem; font-size: 0.98rem; }
+}

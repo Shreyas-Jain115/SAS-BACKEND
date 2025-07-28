@@ -1,0 +1,128 @@
+.wrapper {
+  min-height: 100dvh;
+  width: 100%;
+  background: #181a1e;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 7vh;
+  overflow-x: hidden;
+}
+
+.title {
+  color: #e2edfc;
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 1.9rem;
+}
+
+.formRow {
+  display: flex;
+  flex-direction: row;
+  gap: 0.8em;
+  margin-bottom: 2em;
+  margin-top: 0.5em;
+  flex-wrap: wrap;
+}
+
+.input {
+  background: #202128;
+  color: #f4f4fc;
+  border: 1px solid #333646;
+  border-radius: 6px;
+  padding: 0.65rem 1rem;
+  font-size: 1rem;
+  margin-right: 0.3em;
+  margin-bottom: 0.3em;
+  min-width: 140px;
+  transition: border 0.16s, box-shadow 0.15s;
+}
+
+.input:focus {
+  border: 1px solid #3a8fff;
+  outline: none;
+  box-shadow: 0 1px 6px #3a8fff33;
+}
+
+.button {
+  background: #2b3140;
+  color: #fff;
+  padding: 0.7em 2em;
+  font-size: 1.05rem;
+  border: none;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  margin-right: 0.2em;
+  transition: background 0.17s, transform 0.11s;
+  margin-bottom: 0.25em;
+}
+
+.button:hover, .button:focus {
+  background: #344966;
+  transform: translateY(-1px) scale(1.035);
+}
+
+.subjectListContainer {
+  width: 100%;
+  max-width: 500px;
+  margin: 2em auto 1em auto;
+}
+
+.subjectCard {
+  background: #23242a;
+  border-radius: 0.6em;
+  box-shadow: 0 1px 12px #191a1e14;
+  padding: 1em 1.3em;
+  margin-bottom: 1em;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  transition: box-shadow 0.13s, transform 0.12s;
+  position: relative;
+}
+
+.subjectCard h2 {
+  margin: 0 0 0.25em 0;
+  font-size: 1.15rem;
+  color: #d8eafd;
+}
+
+.subjectCard p {
+  margin: 0 0 0.7em 0;
+  color: #aacef5;
+  font-size: 0.98rem;
+}
+
+.removeButton {
+  background: #26293b;
+  color: #ffbebe;
+  padding: 0.35em 1em;
+  font-size: 0.97rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, transform 0.09s;
+  align-self: flex-end;
+}
+
+.removeButton:hover, .removeButton:focus {
+  background: #3d1321;
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+.addSection {
+  margin-top: 2em;
+}
+
+@media (max-width: 600px) {
+  .subjectListContainer { max-width: 97vw; }
+  .subjectCard { padding: 0.8em 0.4em; }
+  .formRow {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.5em;
+  }
+  .button { width: 100%; }
+}

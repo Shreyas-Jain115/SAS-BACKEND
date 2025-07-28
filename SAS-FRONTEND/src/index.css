@@ -1,0 +1,15 @@
+html, body, #root {
+  height: min-content;
+  margin: 0;
+  padding: 0;
+  background: #1a1a1a;
+  box-sizing: border-box;
+  width: 100vw;
+  overflow-x: hidden;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
