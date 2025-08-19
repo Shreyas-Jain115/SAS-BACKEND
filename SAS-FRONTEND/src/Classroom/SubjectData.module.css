@@ -1,0 +1,76 @@
+.subjectPage {
+  min-height: 100dvh;
+  width: 100%;
+  background: #181a1e;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 5vh;
+  overflow-x: hidden;
+}
+
+.subjectCode {
+  color: #95ccfc;
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  font-weight: 600;
+}
+
+.studentList {
+  width: 100%;
+  max-width: 480px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2em;
+}
+
+.studentCard {
+  background: #23242a;
+  border-radius: 0.7em;
+  box-shadow: 0 2px 10px #17181c22;
+  padding: 1rem 1.3rem;
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow 0.13s, transform 0.12s;
+}
+
+.studentCard:hover {
+  box-shadow: 0 6px 22px #3273dc22;
+  transform: scale(1.02);
+}
+
+.email {
+  color: #e5eafd;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.attendance {
+  color: #92d0a2;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-top: 0.1em;
+}
+
+.viewButton {
+  background: #2b3140;
+  color: #fff;
+  font-size: 1rem;
+  padding: 0.5rem 0.8rem;
+  border: none;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  margin-top: 0.5rem;
+  box-shadow: 0 2px 10px #20202933;
+  transition: background 0.2s, transform 0.13s;
+}
+.viewButton:hover {
+  background: #344966;
+  transform: translateY(-1px);
+}
+
+@media (max-width: 600px) {
+  .studentList { max-width: 98vw; }
+  .studentCard { padding: 0.7rem 0.5rem; }
+}

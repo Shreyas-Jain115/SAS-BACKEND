@@ -1,0 +1,96 @@
+server:
+  port: ${SERVER_PORT:8080}  # fallback to 8080 if not provided
+
+
+spring:
+  application:
+    name: api-gateway # This is the application name for the API Gateway itself
+  # JPA configuration for the Gateway (only if Gateway needs it directly)
+  # It's highly unusual for a pure API Gateway to need JPA.
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect # Corrected dialect name
+  cloud:
+    gateway:
+      mvc:
+        routes:
+          - id: student-service
+            uri: lb://STUDENT-SERVICE
+            predicates:
+              - Path=/student/**
+            # No filters, so /student/XYZ goes as /student/XYZ to STUDENT-SERVICE
+
+          - id: admin-classroom-service
+            uri: lb://CLASSROOM-SERVICE
+            predicates:
+              - Path=/user/admin/** # Catches /user/admin/registerClassroom/**
+            # No 'filters' block here, so /user/admin/XYZ goes as /user/admin/XYZ to CLASSROOM-SERVICE
+
+          - id: generic-classroom-service
+            uri: lb://CLASSROOM-SERVICE
+            predicates:
+              - Path=/classroom/**
+            # No 'filters' block here, so /classroom/XYZ goes as /classroom/XYZ to CLASSROOM-SERVICE
+
+          - id: auth-service
+            uri: lb://STUDENT-SERVICE
+            predicates:
+              - Path=/user/login/**
+          - id: reset-service
+            uri: lb://STUDENT-SERVICE
+            predicates:
+            - Path=/user/reset/**
+            # No 'filters' block here, so /user/login/XYZ goes as /user/login/XYZ to CLASSROOM-SERVICE
+
+  boot:
+    admin:
+      client:
+        url: http://localhost:8888  # Admin server port
+
+
+
+#  # Redis Setup (only if Gateway directly uses Redis, e.g., for rate limiting or session management)
+#  redis:
+#    host: localhost
+#    port: 6379
+#  cache: # For Spring Caching mechanism
+#    type: redis
+
+# Eureka Client configuration for the Gateway
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    prefer-ip-address: true
+
+# Actuator and Tracing configuration for the Gateway
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*" # Expose all actuator endpoints
+  endpoint:
+    health:
+      show-details: always # Show full health details
+  tracing:
+    enabled: true
+    sampling:
+      probability: 1.0 # Sample all traces
+  zipkin:
+    tracing:
+      endpoint: http://localhost:9411/api/v2/spans
+
+logging:
+  level:
+    org.springframework.cloud.gateway: TRACE # Enable TRACE logging for gateway routing
+    org.springframework.web.servlet.DispatcherServlet: DEBUG
+    org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping: DEBUG
+    org.springframework.security: DEBUG # Debug security config
+    org.springframework.web.cors: DEBUG # Debug CORS config

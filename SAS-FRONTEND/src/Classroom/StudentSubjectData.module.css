@@ -1,0 +1,68 @@
+.wrapper {
+  min-height: 100dvh;
+  width: 100%;
+  background: #181a1e;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 7vh;
+  overflow-x: hidden;
+}
+
+.title {
+  color: #e2edfc;
+  font-size: 1.45rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.section {
+  margin: 1.3rem 0 0.6rem 0;
+  color: #8cb5dd;
+  font-size: 1.09rem;
+  font-weight: 500;
+}
+
+.attendanceList {
+  width: 100%;
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.attendanceCard {
+  background: #23242a;
+  border-radius: 0.6rem;
+  box-shadow: 0 1px 6px #181a1e18;
+  padding: 0.7em 1.1em;
+  color: #d9e4fb;
+  font-size: 1.03rem;
+  margin-bottom: 0.1em;
+}
+
+.stats {
+  color: #b5e0cf;
+  font-size: 1.02rem;
+  font-weight: 500;
+  margin-top: 1.4rem;
+  margin-bottom: 0.3rem;
+}
+
+.markButton {
+  background: #2b3140;
+  color: #fff;
+  font-size: 0.95rem;
+  padding: 0.4rem 0.6rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
+}
+
+@media (max-width: 600px) {
+  .title { font-size: 1.09rem; }
+  .attendanceList { max-width: 96vw; }
+  .attendanceCard { padding: 0.55em 0.4em; }
+}

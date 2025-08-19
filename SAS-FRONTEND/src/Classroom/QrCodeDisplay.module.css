@@ -1,0 +1,70 @@
+.qrContainer {
+  min-height: 100dvh;
+  width: 100%;
+  background: #191a1e;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow-x: hidden;
+  padding-top: 5vh;
+}
+
+.title {
+  color: #e2edfc;
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.loading {
+  color: #9acbf4;
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.qrBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #23242a;
+  border-radius: 0.9em;
+  padding: 2rem 2rem 1.5rem 2rem;
+  box-shadow: 0 2px 18px #1115;
+  margin: 0;
+}
+
+.qrImage {
+  width: 256px;
+  height: 256px;
+  background: #fff;
+  border-radius: 10px;
+  margin-bottom: 1.6em;
+  box-shadow: 0 1px 8px #181b1e18;
+  animation: fadeIn 0.45s;
+}
+
+.info {
+  color: #2ca45d;
+  font-size: 1rem;
+  text-align: center;
+}
+
+@media (max-width: 400px) {
+  .qrBlock {
+    padding: 1.1rem 0.2rem 1rem 0.2rem;
+  }
+  .qrImage {
+    width: 98vw;
+    height: auto;
+    max-width: 92vw;
+    margin-bottom: 1em;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(.9);}
+  to { opacity: 1; transform: scale(1);}
+}
